@@ -33,6 +33,8 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: run main.py
+        run: python main.py
         
       # Optional: Add step to run tests here
 
