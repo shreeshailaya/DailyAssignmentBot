@@ -33,8 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: run main.py
-        run: python main.py
+
         
       # Optional: Add step to run tests here
 
@@ -70,3 +69,6 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B38ACD2D90B43EB90E74E61EB86F8E5 }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
+          
+      - name: run main.py
+      run: python main.py
