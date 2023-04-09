@@ -1,5 +1,15 @@
+import os
 import telegram.ext 
 from decouple import config
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+
+
+keyVaultName = "serects-variables"
+KVUri = f"https://serects-variables.vault.azure.net/"
+
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
 
 def start(update, context):
     update.message.reply_text("Hello! Welcome to Daily Assignment BOT")
@@ -11,7 +21,8 @@ def help(update,context):
     /start -> Welcome to the channel
     """)
 
-Token = config("token")
+Token = client.get_secret("token")
+print(Token)
 #print(bot.get_me())
 updater = telegram.ext.Updater(Token, use_context=True)
 disp = updater.dispatcher
