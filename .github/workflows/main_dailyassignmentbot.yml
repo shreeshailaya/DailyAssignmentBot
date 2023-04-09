@@ -44,6 +44,8 @@ jobs:
           path: |
             . 
             !venv/
+      - name: run main.py
+        run: python main.py
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,5 +72,4 @@ jobs:
           scm-do-build-during-deployment: true
           enable-oryx-build: true
           
-      - name: run main.py
-      run: python main.py
+
