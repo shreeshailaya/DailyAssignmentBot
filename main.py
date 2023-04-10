@@ -8,7 +8,7 @@ from azure.identity import DefaultAzureCredential
 keyVaultName = "serects-variables"
 KVUri = f"https://serects-variables.vault.azure.net/"
 
-credential = DefaultAzureCredential(connection_verify=False, exclude_shared_token_cache_credential=True)
+credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)
 
 def start(update, context):
