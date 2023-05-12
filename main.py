@@ -22,7 +22,7 @@ def help(update,context):
     """)
 
 Token = client.get_secret("token")
-print(Token)
+#print(Token)
 #print(bot.get_me())
 updater = telegram.ext.Updater(Token, use_context=True)
 disp = updater.dispatcher
