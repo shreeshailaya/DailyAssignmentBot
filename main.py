@@ -1,6 +1,6 @@
 import os
 import telegram.ext 
-# from decouple import config
+from decouple import config
 # from azure.keyvault.secrets import SecretClient
 # from azure.identity import DefaultAzureCredential
 
@@ -21,7 +21,7 @@ def help(update,context):
     /start -> Welcome to the channel
     """)
 
-Token = os.environ['botToken']
+Token = config("botEnvToken")
 #print(Token)
 #print(bot.get_me())
 updater = telegram.ext.Updater(Token, use_context=True)
